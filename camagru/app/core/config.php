@@ -2,13 +2,13 @@
 
 if ($_SERVER['SERVER_NAME'] == 'localhost') {
 	/** database config **/
-	define('DBNAME', 'my_db');
-	define('DBHOST', 'localhost');
-	define('DBUSER', 'root');
-	define('DBPASS', '');
+	define('DBNAME', '__DBNAME__');
+	define('DBHOST', '__DBHOST__');
+	define('DBUSER', '__DBUSER__');
+	define('DBPASS', '__DBPASS__');
 	define('DBDRIVER', '');
 
-	define('ROOT', 'http://localhost/camagru/public');
+	define('ROOT', '__ROOT__');
 
 } else {
 	/** database config **/
