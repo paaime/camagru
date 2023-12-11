@@ -84,11 +84,16 @@ class Camera
                 $superposeHeight = imagesy($superposeImage);
 
                 // Calculate position to superpose the images (you may need to adjust these values)
-                $x = 50; // Adjust the x-coordinate as needed
-                $y = 50; // Adjust the y-coordinate as needed
+                $x = ($fileInfo[0] - $superposeWidth) / 2;
+                $y = ($fileInfo[1] - $superposeHeight) / 2;
 
-                // Superpose the images
-                imagecopy($baseImage, $superposeImage, $x, $y, 0, 0, $superposeWidth, $superposeHeight);
+                // Calculate new dimensions to fit the superposed image within the bounds
+                $newWidth = min($superposeWidth, $fileInfo[0]);
+                $newHeight = min($superposeHeight, $fileInfo[1]);
+
+
+                // Resize the superpose image proportionally
+                imagecopyresampled($baseImage, $superposeImage, 0, 0, 0, 0, $newWidth, $newHeight, $superposeWidth, $superposeHeight);
 
                 // Save the superposed image
                 $uniqueId = uniqid();
