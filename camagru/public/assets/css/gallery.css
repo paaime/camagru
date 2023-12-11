@@ -1,0 +1,126 @@
+/* GALLERY */
+.gallery-wrapper {
+    display: flex;
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 25px 0;
+    gap: 25px;
+}
+
+
+.gallery-wrapper .left-wrapper {
+    width: 25%;
+}
+
+.gallery-wrapper .middle-wrapper {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.gallery-warpper .right-wrapper {
+    width: 25%;
+}
+
+.card {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: white;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.profile-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #2563eb;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    color: white;
+}
+
+.user-profile .username {
+    font-weight: 600;
+}
+
+.posts {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.pagination {
+    display: flex;
+    gap: 10px;
+    margin: 0 auto;
+}
+
+.pagination .card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    width: 30px;
+    padding: 0;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.pagination .card:hover {
+    background-color: #e5e5e5;
+}
+
+.pagination .prev i {
+    margin-left: -5px;
+}
+
+.pagination .next i {
+    margin-right: -5px;
+}
+
+
+.post {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.post .content {
+    background-color: blue;
+    height: 250px;
+    border-radius: 15px;
+}
+
+.post .footer {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px 0;
+}
+
+.post .footer i {
+    color: #4b5563;
+}
+
+.post .footer .gg-heart {
+    margin-left: 10px;
+}
+
+.new-users p {
+    font-weight: 700;
+}
+.new-users .users {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

@@ -1,0 +1,113 @@
+* {
+    font-family: 'Noto Sans', sans-serif;
+}
+
+body {
+    margin: 0;
+    background-color: #f9fafb;
+}
+
+p {
+    margin: 0;
+}
+
+.popup-error {
+    background-color: #ff4747;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    color: white;
+    position: absolute;
+    width: calc(100% - 30px);
+}
+
+.popup-error .error-wrapper {
+    margin-left: auto;
+    text-align: center;
+}
+
+.popup-error i {
+    margin-left: auto;
+    cursor: pointer;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+}
+
+.auth-wrapper {
+    margin: 0 auto;
+    max-width: 500px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 10px;
+    padding: 50px 15px;
+    background-color: white;
+}
+
+.auth-wrapper img {
+    height: 100px;
+}
+
+.auth-wrapper .input-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+}
+
+.auth-wrapper input {
+    border: 1px solid #e5e7eb;
+    padding: 10px;
+    border-radius: 10px;
+    font-family: 'Noto Sans', sans-serif;
+    margin-bottom: 15px;
+}
+
+.auth-wrapper label {
+    margin-bottom: 5px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.auth-wrapper input:focus {
+    outline: none;
+    border: 1px solid #2563eb;
+}
+
+.auth-wrapper button {
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: #2563eb;
+    color: white;
+    font-weight: 500;
+    font-family: 'Noto Sans', sans-serif;
+    cursor: pointer;
+}
+
+.auth-wrapper .redirect {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.auth-wrapper .redirect h3 {
+    font-size: 16px;
+    margin-block-end: 0;
+}
+
+.auth-wrapper .redirect a {
+    font-size: 14px;
+}
+
+.auth-wrapper .forget-password {
+    margin-top: 15px;
+    font-size: 14px;
+}
