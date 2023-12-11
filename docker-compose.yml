@@ -5,6 +5,12 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        - DBNAME=${MYSQL_DATABASE}
+        - DBHOST=${HOST}
+        - DBUSER=${MYSQL_USER}
+        - DBPASS=${MYSQL_PASSWORD}
+        - ROOT=${ROOT}
     container_name: php
     depends_on:
       - db
@@ -15,9 +21,6 @@ services:
       DBUSER: ${MYSQL_USER}
       DBPASS: ${MYSQL_PASSWORD}
       ROOT: ${ROOT}
-    volumes:
-      - ./camagru/public:/var/www/html/
-      - ./camagru/app:/var/www/app/
     ports:
       - 80:80
     networks:
