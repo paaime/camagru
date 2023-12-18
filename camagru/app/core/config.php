@@ -6,6 +6,7 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') {
 	define('DBHOST', '__DBHOST__');
 	define('DBUSER', '__DBUSER__');
 	define('DBPASS', '__DBPASS__');
+	define('DBPORT', '__DBPORT__');
 	define('DBDRIVER', '');
 
 	define('ROOT', '__ROOT__');

@@ -36,7 +36,7 @@
             <h3>Reset Password</h3>
             <div class="input-wrapper">
                 <label for="password">New Password</label>
-                <input type="password" name="password" placeholder="Enter your new password" />
+                <input type="password" name="password" placeholder="Enter your new password" id="password" />
                 <button type="submit">Change password</button>
             </div>
         </form>

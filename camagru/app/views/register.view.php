@@ -36,11 +36,11 @@
       <h3>Register</h3>
       <div class="input-wrapper">
         <label for="email">Email</label>
-        <input type="email" name="email" placeholder="Enter your email" />
+        <input type="email" name="email" placeholder="Enter your email" id="email" autocomplete="email" />
         <label for="username">Username</label>
-        <input type="text" name="username" placeholder="Enter your username" />
+        <input type="text" name="username" placeholder="Enter your username" id="username" autocomplete="off" />
         <label for="password">Password</label>
-        <input type="password" name="password" placeholder="Enter your password" />
+        <input type="password" name="password" placeholder="Enter your password" id="password" autocomplete="off" />
         <button type="submit">Register</button>
       </div>
       <div class="redirect">

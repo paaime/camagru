@@ -36,7 +36,7 @@
             <h3>Forgot Password</h3>
             <div class="input-wrapper">
                 <label for="email">Email</label>
-                <input type="text" name="email" placeholder="Enter your email" />
+                <input type="text" name="email" placeholder="Enter your email" id="email" />
                 <button type="submit">Send mail</button>
             </div>
         </form>

@@ -36,9 +36,9 @@
       <h3>Login</h3>
       <div class="input-wrapper">
         <label for="username">Username</label>
-        <input type="text" name="username" placeholder="Enter your username" />
+        <input type="text" name="username" placeholder="Enter your username" id="username" autocomplete="off" />
         <label for="password">Password</label>
-        <input type="password" name="password" placeholder="Enter your password" />
+        <input type="password" name="password" placeholder="Enter your password" id="password" autocomplete="off" />
         <button type="submit">Login</button>
       </div>
       <div class="redirect">

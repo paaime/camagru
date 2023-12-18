@@ -4,12 +4,13 @@ services:
   php:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.php
       args:
         - DBNAME=${MYSQL_DATABASE}
         - DBHOST=${HOST}
         - DBUSER=${MYSQL_USER}
         - DBPASS=${MYSQL_PASSWORD}
+        - DBPORT=${MYSQL_DBPORT}
         - ROOT=${ROOT}
     container_name: php
     depends_on:
@@ -20,23 +21,25 @@ services:
       DBHOST: ${HOST}
       DBUSER: ${MYSQL_USER}
       DBPASS: ${MYSQL_PASSWORD}
+      DBPORT: ${MYSQL_DBPORT}
       ROOT: ${ROOT}
     ports:
-      - 80:80
+      - 1025:80
     networks:
       - camagru
   db:
-    container_name: mysql8
-    image: mysql:8.0
+    build:
+      context: .
+      dockerfile: Dockerfile.mysql
+    container_name: mysql
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: ${MYSQL_DATABASE}
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_TCP_PORT: 3307
     ports:
-      - 3306:3306
-    volumes:
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - 3307:3306
     networks:
       - camagru
   phpmyadmin:
@@ -47,6 +50,7 @@ services:
       PMA_HOST: ${PMA_HOST}
       PMA_USER: ${PMA_USER}
       PMA_PASSWORD: ${PMA_PASSWORD}
+      PMA_PORT: 3307
       UPLOAD_LIMIT: 20M
     ports:
       - 8899:80

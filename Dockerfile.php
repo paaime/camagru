@@ -5,6 +5,7 @@ ARG DBNAME
 ARG DBHOST
 ARG DBUSER
 ARG DBPASS
+ARG DBPORT
 ARG ROOT
 
 COPY ./camagru/app /var/www/app
@@ -29,6 +30,7 @@ RUN sed -i \
     -e "s|__DBHOST__|${DBHOST}|g" \
     -e "s|__DBUSER__|${DBUSER}|g" \
     -e "s|__DBPASS__|${DBPASS}|g" \
+    -e "s|__DBPORT__|${DBPORT}|g" \
     -e "s|__ROOT__|${ROOT}|g" \
     /var/www/app/core/config.php
 
