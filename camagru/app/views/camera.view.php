@@ -6,7 +6,10 @@
             <i class="gg-close"></i>
         </div>
         <div class="video-wrapper card">
-            <video id="video" autoplay></video>
+            <div class="overlay-wrapper">
+                <video id="video" autoplay></video>
+                <img id="overlay-image" src="" />
+            </div>
             <div class="no-camera">
                 <img src="<?= ROOT ?>/assets/images/camera.png" alt="No camera">
                 <p>Camera not found...</p>
@@ -86,6 +89,14 @@
                 captureButton.disabled = true;
                 return;
             }
+            var selectedImage = document.querySelector('input[name="superpose"]:checked');
+            if (selectedImage) {
+                var overlayImage = document.getElementById('overlay-image');
+                var imageId = selectedImage.id;
+                overlayImage.src = '<?= ROOT ?>/assets/images/alpha_images/' + imageId + '.png'; // Update with the correct image source
+                overlayImage.style.display = "inline";
+            }
+
             captureButton.disabled = false;
         });
     });

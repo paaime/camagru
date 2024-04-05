@@ -372,10 +372,19 @@ footer {
     gap: 10px;
 }
 
+.post .footer .wrapper-right {
+    margin-left: auto;
+}
+
+
 .post .footer svg {
     color: #4b5563;
     cursor: pointer;
     height: 22px;
+}
+
+.post .footer .wrapper-right svg {
+    margin-bottom: -4px;
 }
 
 .post .comments {
@@ -482,6 +491,18 @@ footer {
 .camera-wrapper .left video {
     width: 100%;
     border-radius: 10px;
+}
+
+.camera-wrapper .left .overlay-wrapper {
+    position: relative;
+}
+
+.camera-wrapper .left #overlay-image {
+    display: none;
+    position: absolute;
+    height: calc(100% - 4px);
+    left: 0;
+    /* width: 100%; */
 }
 
 .camera-wrapper .left .no-camera {

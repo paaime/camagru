@@ -179,4 +179,70 @@ class Gallery
         }
     }
 
+    public function loadPosts()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            $posts = new Post;
+            $userLikes = new UserLikes;
+            $postsPerPage = 5;
+            // get the page number from the query string
+            $page = isset($_GET['page']) ? filter_var($_GET['page'], FILTER_VALIDATE_INT) : 1;
+
+            if ($page === false || $page <= 0) {
+                // Invalid page number, handle the error (e.g., set it to 1, display an error message, or redirect).
+                http_response_code(400);
+                echo "Invalid page number";
+                return;
+            }
+            // Check for XSS or SQL injection
+            if (preg_match('/[\'^£$%&*()}{@#~><>,|=_+¬-]/', $page)) {
+                http_response_code(400);
+                echo "Invalid page number";
+                return;
+            }
+
+
+            $posts = $posts->getPostsByPage($postsPerPage, $page);
+
+            foreach ($posts as $row) {
+                $postId = $row->post_id;
+                $hasUserLiked = isset($_SESSION['USER']) ? $userLikes->hasUserLikedPost($postId, $_SESSION['USER']->id) : false;
+
+                // Initialize the post if it's not added to the array yet
+                if (!isset($postsWithComments[$postId])) {
+                    $postsWithComments[$postId] = [
+                        'post_id' => $postId,
+                        'username' => $row->post_username,
+                        'image_url' => $row->image_url,
+                        'likes' => $row->likes,
+                        'user_id' => $row->post_user_id,
+                        'created_at' => $row->created_at,
+                        'user_has_liked' => $hasUserLiked,
+                        'comments' => [],
+                    ];
+                }
+
+                // Add the comment if available
+                if ($row->comment_id) {
+                    $postsWithComments[$postId]['comments'][] = [
+                        'comment_id' => $row->comment_id,
+                        'comment_text' => $row->comment_text,
+                        'user_id' => $row->comment_user_id,
+                        'comment_username' => $row->comment_username,
+                    ];
+                }
+            }
+
+            if (!isset($postsWithComments)) {
+                echo json_encode([]);
+            } else {
+                echo json_encode($postsWithComments);
+            }
+
+        } else {
+            http_response_code(400);
+            echo json_encode(['error' => 'Bad request']);
+        }
+    }
+
 }
