@@ -41,7 +41,8 @@ class Register
 				if ($mail_success) {
 					$_POST['token'] = $token;
 					$user->insert($_POST);
-					redirect('login');
+					$data['success'] = ["Account created successfully, check your email to verify your account"];
+					$this->view('register', $data);
 					return true;
 				} else
 					$user->errors['email'] = "Problem sending email";

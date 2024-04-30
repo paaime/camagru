@@ -28,6 +28,14 @@
       <i class="gg-close"></i>
     </div>
   <?php endif; ?>
+  <?php if (!empty($success)): ?>
+    <div class="popup-success">
+      <div class="success-wrapper">
+        <?= implode("<br>", $success) ?>
+      </div>
+      <i class="gg-close"></i>
+    </div>
+  <?php endif; ?>
   <main>
     <form method="post" class="auth-wrapper">
       <a href="<?= ROOT ?>">
@@ -50,11 +58,17 @@
   </main>
 
   <script>
-    let closeBtn = document.querySelector(".popup-error .gg-close");
-    let popup = document.querySelector(".popup-error");
+    let closeBtnError = document.querySelector(".popup-error .gg-close");
+    let closeBtnSuccess = document.querySelector(".popup-success .gg-close");
+    let popupError = document.querySelector(".popup-error");
+    let popupSuccess = document.querySelector(".popup-success");
 
-    closeBtn?.addEventListener("click", () => {
-      popup.style.display = "none";
+    closeBtnError?.addEventListener("click", () => {
+      popupError.style.display = "none";
+    });
+
+    closeBtnSuccess?.addEventListener("click", () => {
+      popupSuccess.style.display = "none";
     });
   </script>
 </body>

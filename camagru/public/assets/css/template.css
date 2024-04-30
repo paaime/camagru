@@ -19,8 +19,7 @@ main {
     min-height: calc(100vh - 195px);
 }
 
-.popup-error {
-    background-color: #ff4747f0;
+.popup-error, .popup-success {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -33,12 +32,21 @@ main {
     width: calc(100% - 30px);
 }
 
-.popup-error .error-wrapper {
+.popup-error {
+    background-color: #ff4747f0;
+}
+
+.popup-success {
+    background-color: #00a33e;
+}
+
+
+.popup-error .error-wrapper, .popup-success .success-wrapper {
     margin-left: auto;
     text-align: center;
 }
 
-.popup-error i {
+.popup-error i, .popup-success i {
     margin-left: auto;
     cursor: pointer;
 }

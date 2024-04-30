@@ -11,23 +11,34 @@ p {
     margin: 0;
 }
 
-.popup-error {
-    background-color: #ff4747;
+.popup-error, .popup-success {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 15px;
+    border-radius: 0 0 10px 10px;
+    top: 0;
+    left: 0;
     color: white;
     position: absolute;
     width: calc(100% - 30px);
 }
 
-.popup-error .error-wrapper {
+.popup-error {
+    background-color: #ff4747f0;
+}
+
+.popup-success {
+    background-color: #00a33e;
+}
+
+
+.popup-error .error-wrapper, .popup-success .success-wrapper {
     margin-left: auto;
     text-align: center;
 }
 
-.popup-error i {
+.popup-error i, .popup-success i {
     margin-left: auto;
     cursor: pointer;
 }
